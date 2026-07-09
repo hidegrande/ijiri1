@@ -402,6 +402,31 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
 .f-col a { color: rgba(245,240,232,0.7); text-decoration: none; }
 .f-bottom { padding-top: 1.4rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.7rem; font-size: 0.68rem; color: rgba(245,240,232,0.4); font-family: 'Cormorant Garamond', serif; letter-spacing: 0.17em; }
 
+
+/* ===== i18n ===== */
+html[data-lang="en"] .ja-t { display: none !important; }
+html[data-lang="ja"] .en-t { display: none !important; }
+.lang-sw {
+  display: flex; gap: 2px; align-items: center; margin-left: 1.2rem;
+  border: 1px solid rgba(22,18,14,0.2); border-radius: 2px; overflow: hidden;
+}
+.lang-sw button {
+  background: transparent; border: none; cursor: pointer;
+  font-family: 'Cormorant Garamond', serif; font-size: 0.75rem;
+  letter-spacing: 0.12em; padding: 0.35rem 0.7rem; color: var(--sumi);
+}
+.lang-sw button.on { background: var(--gold); color: var(--ink); font-weight: 600; }
+.lang-sw-m {
+  display: flex; gap: 2px; margin: 0.8rem 0 0.3rem;
+  border: 1px solid rgba(22,18,14,0.2); border-radius: 2px; overflow: hidden; width: fit-content;
+}
+.lang-sw-m button {
+  background: transparent; border: none; cursor: pointer;
+  font-family: 'Cormorant Garamond', serif; font-size: 0.85rem;
+  letter-spacing: 0.12em; padding: 0.5rem 1.1rem; color: var(--sumi);
+}
+.lang-sw-m button.on { background: var(--gold); color: var(--ink); font-weight: 600; }
+
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.85s ease, transform 0.85s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -477,6 +502,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
       <a href="#creds">Credentials</a>
       <a href="#process">Commission</a>
       <a href="#contact">Contact</a>
+      <div class="lang-sw"><button id="swEn" onclick="setLang('en')">EN</button><button id="swJa" onclick="setLang('ja')">日本語</button></div>
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -488,6 +514,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
   <a href="#creds">Credentials / 実績</a>
   <a href="#process">Commission / 制作</a>
   <a href="#contact">Contact / お問い合わせ</a>
+  <div class="lang-sw-m"><button id="swEnM" onclick="setLang('en')">EN</button><button id="swJaM" onclick="setLang('ja')">日本語</button></div>
 </div>
 
 <!-- HERO -->
@@ -500,7 +527,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
         <em>翠 雲 彫 — 三代続く木彫の系譜</em>
       </h1>
       <p class="hero-sub">
-        滋賀の山あいの里・上丹生から。皇室への献上品を手がけた初代翠雲の技を継ぎ、三代目・井尻一茂が一刀ずつ彫り上げる。From a hidden mountain village in Japan — a lineage that once carved tributes for the Imperial Household.
+        <span class="ja-t">滋賀の山あいの里・上丹生から。皇室への献上品を手がけた初代翠雲の技を継ぎ、三代目・井尻一茂が一刀ずつ彫り上げる。</span><span class="en-t">From Kaminyu, a hidden mountain village in Shiga, Japan. Third-generation master Kazushige Ijiri carries a lineage that once carved tributes for the Imperial Household — every piece shaped by hand, one chisel stroke at a time.</span>
       </p>
       <div class="hero-cta">
         <a href="#gallery" class="btn btn-primary">View Works →</a>
@@ -536,11 +563,11 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
     <div class="col-head">
       <div class="label">Collection — 手に取れる翠雲彫</div>
       <h2 class="title">Wearable heritage.<span class="jp">身 に つ け る 、 九 十 年 の 技 。</span></h2>
-      <p>一点ずつ手彫りする、小さな翠雲彫。すべてに三代目の銘と証明書が付きます。Each piece is hand-carved, signed by the master, and comes with a certificate of authenticity.</p>
+      <p><span class="ja-t">一点ずつ手彫りする、小さな翠雲彫。すべてに三代目の銘と証明書が付きます。</span><span class="en-t">Small Suiun-bori works, each carved by hand. Every piece bears the master’s signature and comes with a certificate of authenticity.</span></p>
     </div>
 
     <div class="col-group-title">Guardian Collection<span class="jp2">守りの彫刻</span><span class="range">$90 – $300</span></div>
-    <div class="col-group-sub">龍・獅子・家紋 — 幸運と守護の意味を込めた、身につけるお守り。Symbols of protection and fortune, carved to be worn.</div>
+    <div class="col-group-sub"><span class="ja-t">龍・獅子・家紋 — 幸運と守護の意味を込めた、身につけるお守り。</span><span class="en-t">Dragon, lion, and family crest — symbols of protection and fortune, carved to be worn.</span></div>
     <div class="col-grid">
       <div class="col-card">
         <div class="col-photo">
@@ -593,7 +620,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
     </div>
 
     <div class="col-group-title">Netsuke Collection<span class="jp2">現代根付</span><span class="range">$480 –</span></div>
-    <div class="col-group-sub">手のひらに収まる小さな彫刻。世界中のコレクターが集める日本発の芸術。十二支すべて制作可能。Palm-sized sculptures collected worldwide — all twelve zodiac animals available.</div>
+    <div class="col-group-sub"><span class="ja-t">手のひらに収まる小さな彫刻。世界中のコレクターが集める日本発の芸術。十二支すべて制作可能。</span><span class="en-t">Palm-sized sculptures collected worldwide — a uniquely Japanese art form. All twelve zodiac animals available.</span></div>
     <div class="col-grid">
       <div class="col-card">
         <div class="col-photo">
@@ -645,7 +672,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
       </div>
     </div>
 
-    <div class="col-note">※ 価格は仮設定です（公開前にかずしげさんと最終確定）。各作品は受注制作・世界配送対応。 Prices are provisional. Made to order, worldwide shipping.</div>
+    <div class="col-note"><span class="ja-t">※ 価格は仮設定です（公開前にかずしげさんと最終確定）。各作品は受注制作・世界配送対応。</span><span class="en-t">Prices are provisional. Each piece is made to order, with worldwide shipping.</span></div>
   </div>
 </section>
 
@@ -654,7 +681,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
   <div class="story-grid">
     <div class="story-photo reveal">
       <img src="images/img_112.jpg" alt="工房で彫刻する三代目 井尻一茂">
-      <div class="caption">三代目 井尻一茂 — 上丹生の工房にて / Third-generation master Kazushige Ijiri in his Kaminyu workshop</div>
+      <div class="caption"><span class="ja-t">三代目 井尻一茂 — 上丹生の工房にて</span><span class="en-t">Third-generation master Kazushige Ijiri in his Kaminyu workshop</span></div>
     </div>
     <div class="story-text reveal">
       <div class="label">A 90-year heritage</div>
@@ -662,9 +689,11 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
         The chisel that once<br>carved for the Emperor.
         <span class="jp">皇 室 に 献 上 さ れ た 技</span>
       </h2>
-      <p class="lead">"祖父の手は、天皇陛下への献上物を彫り上げた。三代の時を経て、その技は私の手に受け継がれている。"</p>
-      <p>井尻彫刻所は<strong>1935年（昭和10年）</strong>、初代・井尻翠雲によって開かれました。初代は皇室への献上物を製作するほどの腕前を持ち、岸和田・極楽寺町をはじめとする関西の名門だんじりの彫刻責任者も務めた伝説的な彫師です。</p>
-      <p>その「翠雲彫」の技は二代目を経て、三代目・<strong>井尻一茂</strong>へ。経済産業大臣指定 伝統的工芸品「彦根仏壇」の<strong>伝統工芸士（認定番号 507210号）</strong>として、90年の系譜を今に伝えています。</p>
+      <p class="lead"><span class="ja-t">"祖父の手は、天皇陛下への献上物を彫り上げた。三代の時を経て、その技は私の手に受け継がれている。"</span><span class="en-t">"My grandfather’s hands carved a tribute for the Emperor of Japan. Three generations later, those same techniques live on in mine."</span></p>
+      <p class="ja-t">井尻彫刻所は<strong>1935年（昭和10年）</strong>、初代・井尻翠雲によって開かれました。初代は皇室への献上物を製作するほどの腕前を持ち、岸和田・極楽寺町をはじめとする関西の名門だんじりの彫刻責任者も務めた伝説的な彫師です。</p>
+      <p class="ja-t">その「翠雲彫」の技は二代目を経て、三代目・<strong>井尻一茂</strong>へ。経済産業大臣指定 伝統的工芸品「彦根仏壇」の<strong>伝統工芸士（認定番号 507210号）</strong>として、90年の系譜を今に伝えています。</p>
+      <p class="en-t">Founded in <strong>1935</strong> by the first-generation master Ijiri Suiun — a legendary carver entrusted with presentation pieces for the Imperial Household, and chief carver for some of Kansai’s most prestigious danjiri festival floats.</p>
+      <p class="en-t">The “Suiun-bori” tradition passed through the second generation to today’s master, <strong>Kazushige Ijiri</strong> — a government-certified <strong>Traditional Craftsman (No. 507210)</strong> of Hikone Butsudan, carrying ninety years of lineage into the present.</p>
       <div class="stats">
         <div class="stat"><div class="num">90+</div><div class="lb">年の歴史<br>Years of Heritage</div></div>
         <div class="stat"><div class="num">3</div><div class="lb">代継承<br>Generations</div></div>
@@ -679,7 +708,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
   <div class="gallery-head">
     <div class="label" style="color: var(--gold-bright);">Works — 作品</div>
     <h2 class="title">Every piece, one of one.<span class="jp">す べ て 、 一 点 物 。</span></h2>
-    <p>以下すべて井尻一茂の手による彫刻です。タップで拡大、気になる作品はそのままお問い合わせいただけます。All works are hand-carved by the master himself. Tap to enlarge — inquire directly about any piece.</p>
+    <p><span class="ja-t">以下すべて井尻一茂の手による彫刻です。タップで拡大、気になる作品はそのままお問い合わせいただけます。</span><span class="en-t">Every work below is hand-carved by the master himself. Tap to enlarge — and inquire directly about any piece that speaks to you.</span></p>
   </div>
   <div class="filters"><button class="f-btn active" data-f="all">All すべて</button><button class="f-btn" data-f="dragon">Dragons 龍</button><button class="f-btn" data-f="bird">Birds & Animals 鳥・動物</button><button class="f-btn" data-f="sacred">Sacred & Festival 寺社・祭</button><button class="f-btn" data-f="panel">Panels 欄間</button><button class="f-btn" data-f="object">Masks & Objects 面・置物</button><button class="f-btn" data-f="craft">The Craft 工房</button></div>
   <div class="masonry" id="masonry">
@@ -737,7 +766,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
 <figure class="g-item tall" data-cat="craft" data-n="101" onclick="openLB(this)"><img src="images/img_101.jpg" alt="翠雲彫 作品 No.101" loading="lazy"><figcaption><span class="g-cat">The Craft</span><span class="g-num">No.101</span></figcaption></figure>
 <figure class="g-item wide" data-cat="craft" data-n="108" onclick="openLB(this)"><img src="images/img_108.jpg" alt="翠雲彫 作品 No.108" loading="lazy"><figcaption><span class="g-cat">The Craft</span><span class="g-num">No.108</span></figcaption></figure>
   </div>
-  <div class="gallery-note">※ 掲載作品の多くは受注制作の参考例です。同一作品の複製は行いません。 Most pieces shown are references for made-to-order commissions. No work is ever duplicated.</div>
+  <div class="gallery-note"><span class="ja-t">※ 掲載作品の多くは受注制作の参考例です。同一作品の複製は行いません。</span><span class="en-t">Most pieces shown are references for made-to-order commissions. No work is ever duplicated.</span></div>
 </section>
 
 <!-- LIGHTBOX -->
@@ -764,14 +793,14 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
       <h2 class="title">Recognized<br>by the trade.<span class="jp">受 賞 ・ 認 定 ・ 実 績</span></h2>
     </div>
     <div class="cred-list">
-      <div class="cred reveal"><div class="y">2013</div><div class="t">伝統工芸士 認定</div><div class="d">経産大臣指定 彦根仏壇 彫刻部門（No. 507210）</div></div>
-      <div class="cred reveal"><div class="y">2008</div><div class="t">江州彦根七職家</div><div class="d">彦根仏壇を構成する七職の伝統職人ギルドの一員。</div></div>
-      <div class="cred reveal"><div class="y">Award</div><div class="t">滋賀県中小企業団体中央会 会長表彰</div><div class="d">伝統工芸への貢献を評価。</div></div>
-      <div class="cred reveal"><div class="y">Award</div><div class="t">彦根市 伝統的工芸品産業技術者表彰</div><div class="d">彦根市より技術者として表彰。</div></div>
-      <div class="cred reveal"><div class="y">Heritage</div><div class="t">平泉寺白山神社</div><div class="d">福井県・歴史ある古社の装飾彫刻を担当。</div></div>
-      <div class="cred reveal"><div class="y">Heritage</div><div class="t">大谷祖廟・東本願寺</div><div class="d">浄土真宗の重要拠点での彫刻仕事。</div></div>
-      <div class="cred reveal"><div class="y">2011</div><div class="t">柒+（ナナプラス）創設・代表</div><div class="d">彦根七職とデザイナーによる現代モダン仏壇ブランド。</div></div>
-      <div class="cred reveal"><div class="y">2018-</div><div class="t">上丹生ウッドペッカーズ</div><div class="d">米原市と協働でインバウンド向け工芸体験を運営。</div></div>
+      <div class="cred reveal"><div class="y">2013</div><div class="t">伝統工芸士 認定</div><div class="d"><span class="ja-t">経産大臣指定 彦根仏壇 彫刻部門（No. 507210）</span><span class="en-t">Certified Traditional Craftsman, Hikone Butsudan sculpture division (METI, No. 507210).</span></div></div>
+      <div class="cred reveal"><div class="y">2008</div><div class="t">江州彦根七職家</div><div class="d"><span class="ja-t">彦根仏壇を構成する七職の伝統職人ギルドの一員。</span><span class="en-t">Member of the historic guild of seven master crafts composing the Hikone altar.</span></div></div>
+      <div class="cred reveal"><div class="y">Award</div><div class="t">滋賀県中小企業団体中央会 会長表彰</div><div class="d"><span class="ja-t">伝統工芸への貢献を評価。</span><span class="en-t">Awarded for contribution to traditional crafts by the Shiga SME Association.</span></div></div>
+      <div class="cred reveal"><div class="y">Award</div><div class="t">彦根市 伝統的工芸品産業技術者表彰</div><div class="d"><span class="ja-t">彦根市より技術者として表彰。</span><span class="en-t">Honored by the City of Hikone as a traditional craft technician.</span></div></div>
+      <div class="cred reveal"><div class="y">Heritage</div><div class="t">平泉寺白山神社</div><div class="d"><span class="ja-t">福井県・歴史ある古社の装飾彫刻を担当。</span><span class="en-t">Ornamental carving for one of Fukui’s most historic shrine complexes.</span></div></div>
+      <div class="cred reveal"><div class="y">Heritage</div><div class="t">大谷祖廟・東本願寺</div><div class="d"><span class="ja-t">浄土真宗の重要拠点での彫刻仕事。</span><span class="en-t">Carving work for a principal site of the Jodo Shinshu Buddhist tradition.</span></div></div>
+      <div class="cred reveal"><div class="y">2011</div><div class="t">柒+（ナナプラス）創設・代表</div><div class="d"><span class="ja-t">彦根七職とデザイナーによる現代モダン仏壇ブランド。</span><span class="en-t">Founder of NANAPLUS, a modern altar brand uniting Hikone’s seven crafts with contemporary design.</span></div></div>
+      <div class="cred reveal"><div class="y">2018-</div><div class="t">上丹生ウッドペッカーズ</div><div class="d"><span class="ja-t">米原市と協働でインバウンド向け工芸体験を運営。</span><span class="en-t">Leads inbound craft-experience programs with Maibara City.</span></div></div>
     </div>
   </div>
   <div class="media-row">
@@ -792,32 +821,32 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
     <div class="reveal" style="max-width: 760px;">
       <div class="label">Commission</div>
       <h2 class="title">制作の流れ。<span class="jp">How a piece comes into being</span></h2>
-      <p style="margin-top: 1.1rem; color: var(--sumi); font-size: 0.95rem; line-height: 1.8;">すべての制作は対話から始まり、世界に一つの作品として完成します。日本・北米・欧州・アジアのお客様に対応しています。</p>
+      <p style="margin-top: 1.1rem; color: var(--sumi); font-size: 0.95rem; line-height: 1.8;"><span class="ja-t">すべての制作は対話から始まり、世界に一つの作品として完成します。日本・北米・欧州・アジアのお客様に対応しています。</span><span class="en-t">Every commission begins with a conversation and ends as a one-of-one work. We serve clients across Japan, North America, Europe, and Asia.</span></p>
     </div>
     <div class="proc-steps">
       <div class="pstep reveal">
         <div class="pimg"><img src="images/img_23.jpg" alt="下絵・図面" loading="lazy"></div>
         <div class="pn">01</div>
         <h4>Inquiry & Design<span class="jp">相談・下絵</span></h4>
-        <p>フォーム・メール・ビデオ通話でご相談。ご要望をもとに下絵を作成します。日英対応。</p>
+        <p><span class="ja-t">フォーム・メール・ビデオ通話でご相談。ご要望をもとに下絵を作成します。日英対応。</span><span class="en-t">Share your vision by form, email, or video call. We prepare sketches from your ideas — in English or Japanese.</span></p>
       </div>
       <div class="pstep reveal">
         <div class="pimg"><img src="images/img_19.jpg" alt="鑿 数百本の道具" loading="lazy"></div>
         <div class="pn">02</div>
         <h4>The Tools<span class="jp">道具と木取り</span></h4>
-        <p>数百本の鑿を使い分け、作品に合う木材を選定。木目と造形の相性を見極めます。</p>
+        <p><span class="ja-t">数百本の鑿を使い分け、作品に合う木材を選定。木目と造形の相性を見極めます。</span><span class="en-t">Hundreds of chisels, each with a purpose. We select the wood whose grain best serves your piece.</span></p>
       </div>
       <div class="pstep reveal">
         <div class="pimg"><img src="images/img_20.jpg" alt="手彫りの工程" loading="lazy"></div>
         <div class="pn">03</div>
         <h4>Hand-Carving<span class="jp">手彫り制作</span></h4>
-        <p>30〜90日。すべて手彫り、機械彫刻は使いません。工程写真を随時ご報告します。</p>
+        <p><span class="ja-t">30〜90日。すべて手彫り、機械彫刻は使いません。工程写真を随時ご報告します。</span><span class="en-t">30–90 days. Entirely hand-carved — no machine work. Progress photos shared throughout.</span></p>
       </div>
       <div class="pstep reveal">
         <div class="pimg"><img src="images/img_113.jpg" alt="設置された作品" loading="lazy"></div>
         <div class="pn">04</div>
         <h4>Delivery<span class="jp">納品・国際配送</span></h4>
-        <p>保険付き・気候対応梱包で世界配送（FedEx / DHL）。通関書類も当方で対応します。</p>
+        <p><span class="ja-t">保険付き・気候対応梱包で世界配送（FedEx / DHL）。通関書類も当方で対応します。</span><span class="en-t">Insured, climate-stable packaging shipped worldwide via FedEx / DHL. Customs paperwork handled by us.</span></p>
       </div>
     </div>
   </div>
@@ -826,8 +855,8 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
 <!-- CTA -->
 <section class="cta">
   <div class="cta-in">
-    <h2>翠雲彫を所有する人は<br>世界に<em>限られている</em>。</h2>
-    <p>すべての作品は世界に一つ。複製も、再現もしません。<br>Every piece is one of one — never reproduced.</p>
+    <h2><span class="ja-t">翠雲彫を所有する人は<br>世界に<em>限られている</em>。</span><span class="en-t">Few will ever own<br>a <em>Suiun-bori</em> piece.</span></h2>
+    <p><span class="ja-t">すべての作品は世界に一つ。複製も、再現もしません。</span><span class="en-t">Every piece is one of one — never reproduced, never repeated.</span></p>
     <a href="#contact" class="btn btn-primary">Begin Your Commission →</a>
   </div>
 </section>
@@ -839,7 +868,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
       <div class="label">Contact</div>
       <h2 class="title">Let's begin.<span class="jp">お 問 い 合 わ せ</span></h2>
       <p style="margin-top: 1.1rem; color: var(--sumi); line-height: 1.85; font-size: 0.92rem;">
-        ギャラリーの作品番号を添えていただくと、類似作品の制作お見積りがスムーズです。カリフォルニアの瞑想ルームの仏像も、ロンドンの邸宅の表札も、文化財の修復も。すべてのご相談を歓迎します。
+        <span class="ja-t">ギャラリーの作品番号を添えていただくと、類似作品の制作お見積りがスムーズです。カリフォルニアの瞑想ルームの仏像も、ロンドンの邸宅の表札も、文化財の修復も。すべてのご相談を歓迎します。</span><span class="en-t">Include a work number from the gallery and we can quote a similar commission quickly. A Buddha for a meditation room in California, a carved nameplate for a London home, heritage restoration — every conversation is welcome.</span>
       </p>
       <div class="cinfo">
         <div><div class="cl">Workshop</div>滋賀県米原市上丹生 1858<br>1858 Kaminyu, Maibara, Shiga, Japan</div>
@@ -880,7 +909,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
         <div class="seal">翠</div>
         <h3>IJIRI CHOKOKUSHO</h3>
         <div class="fjp">井 尻 彫 刻 所</div>
-        <p>滋賀の山あいの里から、世界中のあなたの家へ。三代続く木彫の系譜。</p>
+        <p><span class="ja-t">滋賀の山あいの里から、世界中のあなたの家へ。三代続く木彫の系譜。</span><span class="en-t">From a hidden village in Shiga, Japan, to your home anywhere in the world. Three generations of master woodcarving.</span></p>
       </div>
       <div class="f-col">
         <h4>Explore</h4>
@@ -908,6 +937,23 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
 </footer>
 
 <script>
+// ===== i18n: 言語切替 =====
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  ['swEn','swJa','swEnM','swJaM'].forEach(id => {
+    const b = document.getElementById(id);
+    if (b) b.classList.toggle('on', (lang === 'en') === id.includes('En'));
+  });
+  try { localStorage.setItem('ijiri_lang', lang); } catch(e) {}
+}
+// 初期言語: 保存済み > ブラウザ言語
+(function() {
+  let lang = null;
+  try { lang = localStorage.getItem('ijiri_lang'); } catch(e) {}
+  if (!lang) lang = (navigator.language || 'en').toLowerCase().startsWith('ja') ? 'ja' : 'en';
+  setLang(lang);
+})();
+
 // Mobile menu
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -956,7 +1002,10 @@ function inquireLB() {
   const n = lbList[lbIdx].dataset.n;
   closeLB();
   const field = document.getElementById('visionField');
-  field.value = '作品 No.' + String(n).padStart(3, '0') + ' について問い合わせます。\n（類似作品の制作希望 / サイズ・価格の相談など）\n';
+  const isJa = document.documentElement.getAttribute('data-lang') === 'ja';
+  field.value = isJa
+    ? '作品 No.' + String(n).padStart(3, '0') + ' について問い合わせます。\n（類似作品の制作希望 / サイズ・価格の相談など）\n'
+    : 'Inquiry about Work No.' + String(n).padStart(3, '0') + '\n(Similar commission / size & pricing questions)\n';
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 }
 document.getElementById('lightbox').addEventListener('click', e => { if (e.target.id === 'lightbox') closeLB(); });
