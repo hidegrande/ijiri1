@@ -165,6 +165,73 @@ section { position: relative; }
   display: block; margin-top: 0.6rem; color: var(--sumi); letter-spacing: 0.18em;
 }
 
+
+/* ===== COLLECTION (dummy-ready) ===== */
+.collection { background: linear-gradient(180deg, var(--paper), var(--bone)); }
+.col-head { max-width: 1400px; margin: 0 auto 2.2rem; }
+.col-head p { color: var(--sumi); font-size: 0.93rem; line-height: 1.8; max-width: 640px; margin-top: 0.6rem; }
+.col-group-title {
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 1.45rem; color: var(--ink); margin: 2.6rem 0 0.4rem;
+  display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap;
+}
+.col-group-title .jp2 { font-family: 'Shippori Mincho', serif; font-size: 0.72em; color: var(--sumi); letter-spacing: 0.15em; }
+.col-group-title .range { font-size: 0.62em; color: var(--gold); letter-spacing: 0.12em; margin-left: auto; }
+.col-group-sub { font-size: 0.85rem; color: var(--sumi); margin-bottom: 1.2rem; line-height: 1.7; }
+.col-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+.col-card {
+  background: var(--paper); border: 1px solid rgba(22,18,14,0.1);
+  overflow: hidden; transition: all 0.35s; position: relative;
+}
+.col-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 16px 36px rgba(22,18,14,0.09); }
+.col-photo {
+  position: relative; aspect-ratio: 1/1; overflow: hidden;
+  background: linear-gradient(135deg, #2c2520, #1a1612);
+  display: flex; align-items: center; justify-content: center;
+}
+.col-photo .ph-kanji {
+  font-family: 'Shippori Mincho', serif; font-weight: 800;
+  font-size: 3.6rem; color: rgba(184,150,74,0.3); line-height: 1;
+}
+.col-photo .ph-note {
+  position: absolute; bottom: 0.7rem; left: 0; right: 0;
+  text-align: center; font-family: 'Cormorant Garamond', serif;
+  font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(245,240,232,0.45);
+}
+.col-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 2; background: var(--bone);
+}
+.col-body { padding: 1.1rem 1.1rem 1.2rem; }
+.col-tag {
+  display: inline-block; font-family: 'Cormorant Garamond', serif;
+  font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--vermilion); border: 1px solid rgba(139,58,42,0.35);
+  padding: 0.18rem 0.55rem; margin-bottom: 0.55rem;
+}
+.col-name {
+  font-family: 'Cormorant Garamond', serif; font-weight: 500;
+  font-size: 1.05rem; color: var(--ink); line-height: 1.3;
+}
+.col-name .jp3 { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.72em; color: var(--sumi); margin-top: 0.25rem; letter-spacing: 0.12em; }
+.col-price {
+  font-family: 'Cormorant Garamond', serif; font-size: 0.95rem;
+  color: var(--gold); letter-spacing: 0.08em; margin-top: 0.6rem; font-weight: 600;
+}
+.col-note {
+  max-width: 1400px; margin: 2rem auto 0;
+  font-size: 0.8rem; color: var(--sumi); opacity: 0.75; letter-spacing: 0.04em;
+}
+@media (max-width: 1024px) { .col-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) {
+  .col-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .col-body { padding: 0.85rem 0.85rem 0.95rem; }
+  .col-name { font-size: 0.92rem; }
+  .col-photo .ph-kanji { font-size: 2.6rem; }
+  .col-group-title .range { margin-left: 0; width: 100%; }
+}
+
 /* ===== STORY ===== */
 .story-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 3.5rem; align-items: center; }
 .story-photo { position: relative; overflow: hidden; border: 1px solid rgba(22,18,14,0.12); }
@@ -404,6 +471,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
       </div>
     </a>
     <div class="nav-links">
+      <a href="#collection">Collection</a>
       <a href="#story">Heritage</a>
       <a href="#gallery">Gallery</a>
       <a href="#creds">Credentials</a>
@@ -414,6 +482,7 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#collection">Collection / 商品</a>
   <a href="#story">Heritage / 系譜</a>
   <a href="#gallery">Gallery / 作品</a>
   <a href="#creds">Credentials / 実績</a>
@@ -457,6 +526,126 @@ footer { background: var(--ink); color: var(--paper); padding: 3.2rem 1.5rem 1.6
         <div class="hp-tag">In the Home</div>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- COLLECTION (dummy枠 — images/collection/ に同名JPGを置くと自動で写真表示) -->
+<section class="collection" id="collection">
+  <div class="pad">
+    <div class="col-head">
+      <div class="label">Collection — 手に取れる翠雲彫</div>
+      <h2 class="title">Wearable heritage.<span class="jp">身 に つ け る 、 九 十 年 の 技 。</span></h2>
+      <p>一点ずつ手彫りする、小さな翠雲彫。すべてに三代目の銘と証明書が付きます。Each piece is hand-carved, signed by the master, and comes with a certificate of authenticity.</p>
+    </div>
+
+    <div class="col-group-title">Guardian Collection<span class="jp2">守りの彫刻</span><span class="range">$90 – $300</span></div>
+    <div class="col-group-sub">龍・獅子・家紋 — 幸運と守護の意味を込めた、身につけるお守り。Symbols of protection and fortune, carved to be worn.</div>
+    <div class="col-grid">
+      <div class="col-card">
+        <div class="col-photo">
+          <div class="ph-kanji">龍</div>
+          <div class="ph-note">Photo coming soon</div>
+          <img src="images/collection/g_dragon.jpg" alt="龍ペンダント" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Protection</span>
+          <div class="col-name">Dragon Pendant<span class="jp3">龍ペンダント</span></div>
+          <div class="col-price">$120 – $280</div>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="col-photo">
+          <div class="ph-kanji">紋</div>
+          <div class="ph-note">Photo coming soon</div>
+          <img src="images/collection/g_kamon.jpg" alt="家紋ペンダント（オーダー）" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Legacy</span>
+          <div class="col-name">Family Crest Pendant<span class="jp3">家紋ペンダント（オーダー）</span></div>
+          <div class="col-price">$150 – $300</div>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="col-photo">
+          <div class="ph-kanji">獅</div>
+          <div class="ph-note">Photo coming soon</div>
+          <img src="images/collection/g_shishi.jpg" alt="獅子ペンダント" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Guardian</span>
+          <div class="col-name">Shishi Lion Pendant<span class="jp3">獅子ペンダント</span></div>
+          <div class="col-price">$120 – $280</div>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="col-photo">
+          <div class="ph-kanji">干</div>
+          <div class="ph-note">Photo coming soon</div>
+          <img src="images/collection/g_zodiac.jpg" alt="干支ペンダント" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Fortune</span>
+          <div class="col-name">Zodiac Pendant<span class="jp3">干支ペンダント</span></div>
+          <div class="col-price">$90 – $200</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-group-title">Netsuke Collection<span class="jp2">現代根付</span><span class="range">$480 –</span></div>
+    <div class="col-group-sub">手のひらに収まる小さな彫刻。世界中のコレクターが集める日本発の芸術。十二支すべて制作可能。Palm-sized sculptures collected worldwide — all twelve zodiac animals available.</div>
+    <div class="col-grid">
+      <div class="col-card">
+        <div class="col-photo">
+          <div class="ph-kanji">辰</div>
+          <div class="ph-note">Photo coming soon</div>
+          <img src="images/collection/n_dragon.jpg" alt="龍の根付" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Year of the Dragon</span>
+          <div class="col-name">Dragon Netsuke<span class="jp3">龍の根付</span></div>
+          <div class="col-price">$480 –</div>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="col-photo">
+          <div class="ph-kanji">巳</div>
+          <div class="ph-note">Photo coming soon</div>
+          <img src="images/collection/n_snake.jpg" alt="巳の根付" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Year of the Snake</span>
+          <div class="col-name">Snake Netsuke<span class="jp3">巳の根付</span></div>
+          <div class="col-price">$480 –</div>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="col-photo">
+          <div class="ph-kanji">午</div>
+          <div class="ph-note">Photo coming soon</div>
+          <img src="images/collection/n_horse.jpg" alt="午の根付" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Year of the Horse</span>
+          <div class="col-name">Horse Netsuke<span class="jp3">午の根付</span></div>
+          <div class="col-price">$480 –</div>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="col-photo">
+          <div class="ph-kanji">誂</div>
+          <div class="ph-note">Photo coming soon</div>
+          <img src="images/collection/n_custom.jpg" alt="オーダー根付" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Bespoke</span>
+          <div class="col-name">Custom Netsuke<span class="jp3">オーダー根付</span></div>
+          <div class="col-price">$800 –</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-note">※ 価格は仮設定です（公開前にかずしげさんと最終確定）。各作品は受注制作・世界配送対応。 Prices are provisional. Made to order, worldwide shipping.</div>
   </div>
 </section>
 
